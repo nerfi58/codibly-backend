@@ -1,0 +1,12 @@
+FROM eclipse-temurin:21-jdk-jammy
+LABEL authors="nerf58"
+
+WORKDIR /app
+
+COPY .mvn/ .mvn
+COPY mvnw pom.xml ./
+RUN ./mvnw dependency:go-offline
+
+COPY src ./src
+
+CMD ["./mvnw", "spring-boot:run"]
