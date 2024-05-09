@@ -61,8 +61,8 @@ public class WeatherService {
         return weatherResponseList;
     }
 
-    private float calculateEnergy(float sunshineDuration) {
-        return PHOTOVOLTAIC_POWER * sunshineDuration * PANELS_EFFICIENCY;
+    private float calculateEnergy(float sunshineDurationInSeconds) {
+        return PHOTOVOLTAIC_POWER * (sunshineDurationInSeconds / 3600) * PANELS_EFFICIENCY;
     }
 
 }
